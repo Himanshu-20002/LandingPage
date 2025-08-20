@@ -14,8 +14,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #000000;
+    --foreground: #ffffff;
   }
 }
 
@@ -23,4 +23,205 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  padding: 1.5rrm 2rem;
+  align-items: center;
+  gap:2rem;
+  will-change:opacity;
+  z-index: 2;
+}
+
+nav >div{
+  flex:1;
+}
+
+nav .nav-links{
+  display: flex;
+  gap:3rem;
+  padding-left: 18px;
+
+}
+
+nav .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+nav .logo img {
+  width:2rem;
+
+}
+
+nav .logo a{
+  text-transform: uppercase;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.5rem;
+  ;
+}
+
+
+
+nav .nav-buttons{
+  display:flex;
+  gap:1.5rem;
+  justify-content: flex-end;
+}
+
+
+
+img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+h1{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+p{
+  text-transform: uppercase;
+  font-size:0.8rem;
+  font-weight: 500;
+
+}
+
+a{
+  text-decoration: none;
+  font-weight: 600;
+  font-size:0.8rem;
+  text-transform: uppercase;
+}
+
+
+.outro{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #ffffff;
+  color:#0a0a0a;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  display: block;
+  z-index: 0;
+}
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100dvh; /* Use 100vh if 100dvh unsupported */
+  overflow: hidden;
+  background: #000; /* Optional: for contrast */
+}
+.hero-content{
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  padding:0.5rem 0;
+}
+
+.header{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:1.5rem;
+  text-align: center;
+  color:#ffffff;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.header h1{
+  width:50%;
+  margin-bottom: 0.5rem;
+
+}
+
+.header p{
+  opacity: 1;
+}
+
+.client-logos{
+  width: 43%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:0.5rem;
+  
+}
+
+.client-logos .client-logo{
+  flex: 1;
+}
+
+.client-logos .client-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.client-logos .client-logo img {
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: contain;
+}
+
+.hero-img-container {
+ position:absolute;
+ top:50%;
+ left:50%;
+  transform: translate(-50%, -50%);
+  width:50%;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.hero-img{
+  position: relative;
+  width:100%;
+  height:100%;
+  transform: translateZ(1000px);
+  opacity: 0;
+  will-change: transform,opacity;
+}
+
+
+.btn-primary{
+  background: #000000;
+  border-radius: 3rem;
+  padding: 3;
+}
+
+.btn-secondary{
+  background: #ffffff;
+  border-radius: 3rem;
+  color:#000;
 }
