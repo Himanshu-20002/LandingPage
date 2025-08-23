@@ -13,7 +13,7 @@ const Nav = forwardRef((props,ref)=> (      ///when we wrap forwardRef we can pa
           </a>
         </div> */}
         <div className="nav-buttons">
-            <button className="btn-primary"><a href='#' className='p-7'>Live Demo</a></button>
+            <button className="btn-primary"><a href='#' className='p-7 text-white'>Live Demo</a></button>
             <button className="btn-secondary"><a href='#' className='text-black p-7'>Get Started</a></button>
         </div>
       

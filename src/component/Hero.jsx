@@ -175,9 +175,43 @@ const Hero = () => {
                 } else{
                     gsap.set(headerRef.current,{opacity:0});
                 }
+                 if(progress < 0.6){
+                    gsap.set(heroimgRef.current ,{
+                        transform: 'translateZ(1000px)',
+                        opacity:0,
+                    })
+                }
+                else if(progress >= 0.6 && progress <= 0.9 ){
+                    const imgProgress = (progress - 0.6) /0.3;
+                    const translateZ = 1000 -imgProgress * 1000;
+
+                    let opacity = 0;
+                    if (progress <= 0.8){
+                        const opacityProgress = (progress - 0.6)/ 0.2
+                        opacity = opacityProgress;
+                    }else{
+                        opacity = 1;
+
+                    }
+
+                    gsap.set(heroimgRef.current ,{
+                        transform: `translateZ(${translateZ}px)`,
+                        opacity,
+
+                    })
+                } else {
+                    gsap.set(heroimgRef.current,{
+                        transform:'translateZ(0px)',
+                        opacity:1
+
+                    })
+                }
+
+
             }
         });
     };
+
 
     return (
         <div>
@@ -206,7 +240,7 @@ const Hero = () => {
                                 <span className='text-4xl text-black'>GSAP</span>
                             </div>
                         </div>
-                        <button className="hero-button bg-gray-200 p-2 rounded-lg text-black hover:bg-black hover:text-white">Get Started</button>
+                        <button className="hero-button bg-gray-200 p-2 rounded-lg text-black hover:bg-black hover:text-white">Browse Componet</button>
                     </div>
                 </div>
                 <div className="hero-img-container">
