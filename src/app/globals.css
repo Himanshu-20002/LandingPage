@@ -144,78 +144,116 @@ canvas {
   overflow: hidden;
   background: #000; /* Optional: for contrast */
 }
-.hero-content{
+
+/* Update these existing classes with responsive styles */
+.hero-content {
   position: absolute;
-  top: 25%;
+  top: 35%;
   left: 50%;
   transform: translateX(-50%);
   transform-style: preserve-3d;
   perspective: 1000px;
-  padding:0.5rem 0;
+  padding: 0.5rem 1rem; /* Added horizontal padding */
+  width: 100%; /* Added width */
+  max-width: 1440px; /* Added max-width */
 }
 
-.header{
-  position:absolute;
-  top:50%;
-  left:50%;
+.header {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  width: 100vw;
+  width: 90%; /* Changed from 100vw to percentage */
+  max-width: 1200px; /* Added max-width */
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap:1.5rem;
+  gap: 1.5rem;
   text-align: center;
-  color:#ffffff;
+  color: #ffffff;
   transform-origin: center;
   will-change: transform, opacity;
 }
 
-.header h1{
-  width:50%;
+.header h1 {
+  width: 100%; /* Changed from 50% */
+  max-width: 800px; /* Added max-width */
   margin-bottom: 0.5rem;
-
+  font-size: clamp(2rem, 5vw, 3rem); /* Responsive font size */
+  line-height: 1.2;
 }
 
-.header p{
-  opacity: 1;
-}
-
-.client-logos{
-  width: 43%;
+.client-logos {
+  width: 100%; /* Changed from 43% */
+  max-width: 800px; /* Added max-width */
   display: flex;
+  flex-wrap: wrap; /* Added wrap for small screens */
   justify-content: center;
   align-items: center;
-  gap:0.5rem;
-
+  gap: 1rem; /* Increased gap */
+  padding: 0 1rem; /* Added padding */
 }
 
-.client-logos .client-logo{
-  flex: 1;
-}
-
-.client-logos .client-logo {
+.client-logo {
+  flex: 0 1 auto; /* Changed flex property */
+  min-width: 150px; /* Added min-width */
+  max-width: 200px; /* Added max-width */
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  min-width: 0;
 }
 
-.client-logos .client-logo img {
-  width: 2.5rem;
-  height: 2.5rem;
+.client-logo img {
+  width: clamp(2rem, 4vw, 2.5rem); /* Responsive image size */
+  height: clamp(2rem, 4vw, 2.5rem); /* Responsive image size */
   object-fit: contain;
 }
 
+.client-logo span {
+  font-size: clamp(1rem, 3vw, 1.5rem); /* Responsive font size */
+  white-space: nowrap; /* Prevent text wrap */
+}
+
 .hero-img-container {
- position:absolute;
- top:50%;
- left:50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  width:50%;
+  width: min(90%, 800px); /* Responsive width */
   transform-style: preserve-3d;
   perspective: 1000px;
 }
 
+/* Add media queries for specific breakpoints */
+@media (max-width: 768px) {
+  .header h1 {
+    width: 100%;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  .client-logos {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .hero-img-container {
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    top: 20%;
+  }
+
+  .client-logo {
+    min-width: 120px;
+  }
+
+  .client-logo span {
+    font-size: 1rem;
+  }
+}
 .hero-img{
   position: relative;
   width:100%;

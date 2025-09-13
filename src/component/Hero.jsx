@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import Lenis from 'lenis';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Nav from './Nav';
-
+import { useRouter } from 'next/navigation'
 gsap.registerPlugin(ScrollTrigger);
 
 const frameCount = 217;
@@ -218,7 +218,11 @@ const Hero = () => {
         });
     };
 
-
+    const router = useRouter();
+     const handleNavigate = () => {
+        console.log('Navigating to /library');
+        router.push('/library'); // Make sure this matches your route structure
+    };
     return (
         <div>
                <Nav ref={navRef} />
@@ -246,7 +250,6 @@ const Hero = () => {
                                 <span className='text-4xl text-black'>GSAP</span>
                             </div>
                         </div>
-                        <button className="hero-button bg-gray-200 p-2 rounded-lg text-black hover:bg-black hover:text-white">Browse Componet</button>
                     </div>
                 </div>
                 <div className="hero-img-container">
