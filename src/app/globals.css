@@ -42,54 +42,113 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 }
-
+/* Replace the existing nav styles with these */
 nav {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   display: flex;
-  padding: 1.5rrm 2rem;
+  padding: 1rem;
   align-items: center;
-  gap:2rem;
-  will-change:opacity;
-  z-index: 2;
+  justify-content: space-between;
+  backdrop-filter: blur(8px);
+  z-index: 50;
+  transition: all 0.3s ease;
 }
 
-nav >div{
-  flex:1;
+.mobile-menu-btn {
+  display: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
 }
 
-nav .nav-links{
+.nav-links,
+.nav-buttons {
   display: flex;
-  gap:3rem;
-  padding-left: 18px;
-
-}
-
-nav .logo {
-  display: flex;
-  justify-content: center;
+  gap: 2rem;
   align-items: center;
-
 }
 
-nav .logo img {
-  width:2rem;
-
+.btn-primary,
+.btn-secondary {
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
-nav .logo a{
-  text-transform: uppercase;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 1.5rem;
-  ;
+.btn-primary {
+  background: #000;
+  color: white;
 }
 
-nav .nav-buttons{
-  display:flex;
-  gap:1.5rem;
-  justify-content: flex-end;
+.btn-secondary {
+  background: white;
+  color: black;
+  border: 1px solid #000;
 }
 
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+    order: 1;
+  }
+
+  .nav-links,
+  .nav-buttons {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95); /* ensures visible on blur bg */
+    z-index: 40;
+  }
+
+  .nav-links.mobile-menu-open,
+  .nav-buttons.mobile-menu-open {
+    display: flex;
+    margin-top: 0.5rem;
+    padding: 1rem 0;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}
+/* Additional responsive adjustments */
+@media (max-width: 480px) {
+  nav {
+    padding: 0.75rem;
+  }
+
+  .btn-primary, .btn-secondary {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+.nav-links.mobile-menu-open,
+ .nav-buttons.mobile-menu-open {
+    display: flex;
+    margin-top: 1rem;
+  }
+
+  .nav-links.mobile-menu-open {
+    padding-top: 2rem; /* Space for the hamburger button */
+  }
+
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}
 img{
   width:100%;
   height:100%;
