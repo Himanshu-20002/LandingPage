@@ -36,16 +36,22 @@ const render = (canvasRef) => {
             drawHeight = drawWidth / imageAspect;
         }
 
-        // Clamp to image's natural size
-        drawWidth = Math.min(drawWidth, img.naturalWidth);
-        drawHeight = Math.min(drawHeight, img.naturalHeight);
-
-        drawX = (canvasWidth - drawWidth) / 2;
-        drawY = (canvasHeight - drawHeight) / 2;
+   // "Cover" logic: always fill canvas, allow upscaling
+        if (imageAspect > canvasAspect) {
+            drawHeight = canvasHeight;
+            drawWidth = drawHeight * imageAspect;
+            drawX = (canvasWidth - drawWidth) / 2;
+            drawY = 0;
+        } else {
+            drawWidth = canvasWidth;
+            drawHeight = drawWidth / imageAspect;
+            drawX = 0;
+            drawY = (canvasHeight - drawHeight) / 2;
+        }
 
         context.drawImage(
             img,
-            0, 0, img.naturalWidth, img.naturalHeight, // source
+            0, 0, img.naturalWidth, img.naturalHeight,
             drawX * pixelRatio,
             drawY * pixelRatio,
             drawWidth * pixelRatio,

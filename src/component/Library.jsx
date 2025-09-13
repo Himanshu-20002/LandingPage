@@ -11,7 +11,7 @@ const Library = () => {
     const [selectedComponent, setSelectedComponent] = useState("button")
   const [sidebarOpen, setSidebarOpen] = useState(false)
   return (
-    <div className="min-h-screen bg-background dark">
+    <div className="min-h-screen bg-background ">
       {/* Mobile menu button */}
       <div className="lg:hidden fixed top-4 left-4 z-50">
         <Button variant="outline" size="sm" onClick={() => setSidebarOpen(!sidebarOpen)} className="bg-background">

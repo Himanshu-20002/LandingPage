@@ -158,7 +158,7 @@ export function ComponentPreview({ componentName }) {
   const preview = componentPreviews[componentName]
 
   return (
-    <div className="h-full">
+    <div className="h-full ">
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-foreground capitalize font-[family-name:var(--font-space-grotesk)]">
           {componentName}
